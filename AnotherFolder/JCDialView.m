@@ -55,7 +55,7 @@
     }
     
     float angleDivision = 360 / numberOfDigits;
-    float radius = self.frame.size.width/2 - 53;
+    float radius = self.frame.size.width/2 - 32;
     CGPoint center = CGPointMake(self.frame.size.width/2, self.frame.size.height/2);
     
     for (u_int i = 0; i<numberOfDigits; i++) {

@@ -7,8 +7,12 @@
 //
 
 #import "AFViewController.h"
+#import "JCDialView.h"
 
 @interface AFViewController ()
+{
+    __weak IBOutlet JCDialView *dial;
+}
 
 @end
 
@@ -18,6 +22,13 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    [dial dialWithNumberOfDigits:10];
 }
 
 - (void)didReceiveMemoryWarning

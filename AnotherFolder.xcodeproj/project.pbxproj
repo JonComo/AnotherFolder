@@ -18,6 +18,9 @@
 		869E084116C09A280064242D /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 869E084016C09A280064242D /* Default-568h@2x.png */; };
 		869E084416C09A280064242D /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 869E084216C09A280064242D /* MainStoryboard.storyboard */; };
 		869E084716C09A280064242D /* AFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 869E084616C09A280064242D /* AFViewController.m */; };
+		869E08C316C0B9C20064242D /* JCDialView.m in Sources */ = {isa = PBXBuildFile; fileRef = 869E08C216C0B9C20064242D /* JCDialView.m */; };
+		869E08C516C0C4F60064242D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 869E08C416C0C4F60064242D /* QuartzCore.framework */; };
+		869E08CF16C0F2F30064242D /* knobMetal.png in Resources */ = {isa = PBXBuildFile; fileRef = 869E08CD16C0F2F30064242D /* knobMetal.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +40,10 @@
 		869E084316C09A280064242D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		869E084516C09A280064242D /* AFViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AFViewController.h; sourceTree = "<group>"; };
 		869E084616C09A280064242D /* AFViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AFViewController.m; sourceTree = "<group>"; };
+		869E08C116C0B9C20064242D /* JCDialView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCDialView.h; sourceTree = "<group>"; };
+		869E08C216C0B9C20064242D /* JCDialView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCDialView.m; sourceTree = "<group>"; };
+		869E08C416C0C4F60064242D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		869E08CD16C0F2F30064242D /* knobMetal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = knobMetal.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				869E08C516C0C4F60064242D /* QuartzCore.framework in Frameworks */,
 				869E082B16C09A280064242D /* UIKit.framework in Frameworks */,
 				869E082D16C09A280064242D /* Foundation.framework in Frameworks */,
 				869E082F16C09A280064242D /* CoreGraphics.framework in Frameworks */,
@@ -73,6 +81,7 @@
 		869E082916C09A280064242D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				869E08C416C0C4F60064242D /* QuartzCore.framework */,
 				869E082A16C09A280064242D /* UIKit.framework */,
 				869E082C16C09A280064242D /* Foundation.framework */,
 				869E082E16C09A280064242D /* CoreGraphics.framework */,
@@ -83,11 +92,14 @@
 		869E083016C09A280064242D /* AnotherFolder */ = {
 			isa = PBXGroup;
 			children = (
+				869E08C616C0E7010064242D /* media */,
 				869E083916C09A280064242D /* AFAppDelegate.h */,
 				869E083A16C09A280064242D /* AFAppDelegate.m */,
 				869E084216C09A280064242D /* MainStoryboard.storyboard */,
 				869E084516C09A280064242D /* AFViewController.h */,
 				869E084616C09A280064242D /* AFViewController.m */,
+				869E08C116C0B9C20064242D /* JCDialView.h */,
+				869E08C216C0B9C20064242D /* JCDialView.m */,
 				869E083116C09A280064242D /* Supporting Files */,
 			);
 			path = AnotherFolder;
@@ -105,6 +117,14 @@
 				869E084016C09A280064242D /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		869E08C616C0E7010064242D /* media */ = {
+			isa = PBXGroup;
+			children = (
+				869E08CD16C0F2F30064242D /* knobMetal.png */,
+			);
+			path = media;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -164,6 +184,7 @@
 				869E083F16C09A280064242D /* Default@2x.png in Resources */,
 				869E084116C09A280064242D /* Default-568h@2x.png in Resources */,
 				869E084416C09A280064242D /* MainStoryboard.storyboard in Resources */,
+				869E08CF16C0F2F30064242D /* knobMetal.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -177,6 +198,7 @@
 				869E083716C09A280064242D /* main.m in Sources */,
 				869E083B16C09A280064242D /* AFAppDelegate.m in Sources */,
 				869E084716C09A280064242D /* AFViewController.m in Sources */,
+				869E08C316C0B9C20064242D /* JCDialView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,6 +321,7 @@
 				869E084C16C09A280064242D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

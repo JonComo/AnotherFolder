@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C3012" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -73,6 +73,7 @@
                     </view>
                     <connections>
                         <outlet property="dial" destination="tjI-x1-VPG" id="etZ-lT-fQ4"/>
+                        <outlet property="indicator" destination="FG8-1G-Lue" id="gXG-I8-umx"/>
                         <outlet property="l1" destination="Jl0-Tj-kWP" id="Cic-Ls-Kja"/>
                         <outlet property="l2" destination="isq-De-BY7" id="bpl-qh-NGd"/>
                         <outlet property="l3" destination="Ibm-Tg-hGE" id="wxU-T8-0Ym"/>
@@ -80,7 +81,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="153" y="83"/>
+            <point key="canvasLocation" x="-66" y="51"/>
         </scene>
     </scenes>
     <resources>
@@ -91,6 +92,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/AFViewController.h"/>
             <relationships>
                 <relationship kind="outlet" name="dial" candidateClass="JCDialView"/>
+                <relationship kind="outlet" name="indicator" candidateClass="UIView"/>
                 <relationship kind="outlet" name="l1" candidateClass="UIView"/>
                 <relationship kind="outlet" name="l2" candidateClass="UIView"/>
                 <relationship kind="outlet" name="l3" candidateClass="UIView"/>

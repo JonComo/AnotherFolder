@@ -112,11 +112,11 @@
     {
         if (angleDifference > 0 && lastDirection < 0) {
             //Direction change
-            if (self.onDirectionChange) self.onDirectionChange(YES);
+            if (self.changedDirection) self.changedDirection(YES);
         }else if(angleDifference < 0 && lastDirection > 0)
         {
             //Other dir
-            if (self.onDirectionChange) self.onDirectionChange(NO);
+            if (self.changedDirection) self.changedDirection(NO);
         }
         lastDirection = angleDifference;
     }
@@ -127,7 +127,7 @@
     
     self.rotation = [self constrainRotation:self.rotation];
     
-    if (self.onDialTurn) self.onDialTurn(self.rotation * 180 / M_PI);
+    if (self.turnBlock) self.turnBlock(self.rotation * 180 / M_PI);
     
     [self findCurrentDialFromRotation:self.rotation];
     
@@ -175,7 +175,7 @@
     
     if (self.currentDigit != selectedNumber) {
         self.currentDigit = selectedNumber;
-        if (self.onSelectedDigit) self.onSelectedDigit(self.currentDigit);
+        if (self.selectedDigit) self.selectedDigit(self.currentDigit);
     }
 }
 

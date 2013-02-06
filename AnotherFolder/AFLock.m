@@ -11,6 +11,7 @@
 @interface AFLock ()
 {
     NSMutableArray *workingCombination;
+    u_int digitsEntered;
 }
 
 @end
@@ -38,6 +39,7 @@
         //Init
         _combination = [NSMutableArray arrayWithArray:combo];
         workingCombination = [NSMutableArray arrayWithArray:combo];
+        digitsEntered = 0;
     }
     
     return self;
@@ -53,19 +55,42 @@
 {
     NSNumber *number = @(digit);
     
+    digitsEntered ++;
+    
     if ([workingCombination[0] isEqual:number]) {
         [workingCombination removeObjectAtIndex:0];
-        NSLog(@"Correct: %@", workingCombination);
-    }else{
-        workingCombination = [NSMutableArray arrayWithArray:self.combination];
-        NSLog(@"Failed: %@", workingCombination);
     }
+    
+    if (self.progress) self.progress(self.combination.count - digitsEntered);
     
     if (workingCombination.count == 0) {
         //Got all the way through
-        NSLog(@"UNLOCKED!");
         workingCombination = [NSMutableArray arrayWithArray:self.combination];
+        if (self.attemptOutcome) self.attemptOutcome(YES);
+    }else if (digitsEntered == self.combination.count)
+    {
+        if (self.attemptOutcome) self.attemptOutcome(NO);
     }
+}
+
+-(void)resetLock
+{
+    workingCombination = [NSMutableArray arrayWithArray:self.combination];
+    digitsEntered = 0;
+}
+
+-(void)tryLastDigit:(u_int)lastDigit
+{
+    NSNumber *number = @(lastDigit);
+    
+    if ([workingCombination[0] isEqual:number] && workingCombination.count == 1) {
+        [workingCombination removeObjectAtIndex:0];
+        if (self.progress) self.progress(self.combination.count - workingCombination.count);
+        workingCombination = [NSMutableArray arrayWithArray:self.combination];
+        if (self.attemptOutcome) self.attemptOutcome(YES);
+        NSLog(@"UNLOCKED!");
+    }
+
 }
 
 @end

@@ -15,7 +15,11 @@
     float rotationVelocity;
     float lastAngle;
     float angleDifference;
+    float lastDirection;
+    
     NSTimer *rotateTimer;
+    
+    u_int digits;
 }
 
 @end
@@ -44,6 +48,7 @@
 {
     _rotation = 0;
     _friction = 0.2;
+    _currentDigit = 0;
     rotationVelocity = 0;
 }
 
@@ -54,7 +59,8 @@
         [subview removeFromSuperview];
     }
     
-    float angleDivision = 360 / numberOfDigits;
+    digits = numberOfDigits;
+    float angleDivision = 360 / digits;
     float radius = self.frame.size.width/2 - 32;
     CGPoint center = CGPointMake(self.frame.size.width/2, self.frame.size.height/2);
     
@@ -101,16 +107,46 @@
     
     angleDifference = (newAngle - lastAngle);
     
+    if (ABS(angleDifference) < M_PI*1.9)
+    {
+        if (angleDifference > 0 && lastDirection < 0) {
+            //Direction change
+            if (self.onDirectionChange) self.onDirectionChange(YES);
+        }else if(angleDifference < 0 && lastDirection > 0)
+        {
+            //Other dir
+            if (self.onDirectionChange) self.onDirectionChange(NO);
+        }
+        lastDirection = angleDifference;
+    }
+    
     self.rotation += angleDifference;
     
     lastAngle = newAngle;
+    
+    self.rotation = [self constrainRotation:self.rotation];
+    
+    if (self.onDialTurn) self.onDialTurn(self.rotation * 180 / M_PI);
+    
+    [self findCurrentDialFromRotation:self.rotation];
     
     self.layer.transform = CATransform3DMakeRotation(self.rotation, 0, 0, 1);
 }
 
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
+    if (ABS(angleDifference) > 0.8) {
+        angleDifference *= -1;
+    }
     
+    if (angleDifference > 0.2) {
+        angleDifference = 0.2;
+    }else if(angleDifference < -0.2)
+    {
+        angleDifference = -0.2;
+    }
+    
+    rotationVelocity = 0;
     rotationVelocity += angleDifference;
     rotateTimer = [NSTimer scheduledTimerWithTimeInterval:0.02 target:self selector:@selector(rotateLayer) userInfo:nil repeats:YES];
 }
@@ -127,11 +163,31 @@
     
     rotationVelocity *= (1-self.friction);
     
-    if (self.rotation<0) {
-        self.rotation += M_PI * 2;
-    }
+    self.rotation = [self constrainRotation:self.rotation];
     
     self.layer.transform = CATransform3DMakeRotation(self.rotation, 0, 0, 1);
+}
+
+-(void)findCurrentDialFromRotation:(float)rotation
+{
+    u_int selectedNumber = roundf((rotation * 180/M_PI)/360 * (digits-1));
+    
+    if (self.currentDigit != selectedNumber) {
+        self.currentDigit = selectedNumber;
+        if (self.onSelectedDigit) self.onSelectedDigit(self.currentDigit);
+    }
+}
+
+-(float)constrainRotation:(float)rotation
+{
+    if (rotation<0) {
+        rotation += M_PI * 2;
+    }else if(rotation > M_PI * 2)
+    {
+        rotation -= M_PI * 2;
+    }
+    
+    return rotation;
 }
 
 #pragma math
@@ -145,9 +201,9 @@
     
     angle = atan2f(dy, dx);
     
-//    if (angle<0) {
-//        angle += M_PI * 2;
-//    }
+    if (angle<0) {
+        angle += M_PI * 2;
+    }
     
     return angle;
 }

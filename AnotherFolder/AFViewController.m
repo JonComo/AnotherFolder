@@ -8,10 +8,13 @@
 
 #import "AFViewController.h"
 #import "JCDialView.h"
+#import <AVFoundation/AVFoundation.h>
 
 @interface AFViewController ()
 {
     __weak IBOutlet JCDialView *dial;
+    NSArray *userCombo;
+    AVAudioPlayer *audioPlayer;
 }
 
 @end
@@ -22,6 +25,25 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
+    NSURL *url = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/click.wav", [[NSBundle mainBundle] resourcePath]]];
+    NSError *error;
+    audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
+    
+    userCombo = @[@3, @1, @8];
+    
+    [dial setOnDialTurn:^(float rotation){
+        
+    }];
+    
+    [dial setOnSelectedDigit:^(u_int number){
+        
+    }];
+    
+    [dial setOnDirectionChange:^(BOOL clockwise){
+        [audioPlayer stop];
+        [audioPlayer play];
+    }];
 }
 
 -(void)viewDidAppear:(BOOL)animated

@@ -66,13 +66,14 @@
     
     for (u_int i = 0; i<numberOfDigits; i++) {
         //Add labels at angles
-        CGPoint pushedPoint = [self pointFromPoint:center pushedBy:radius inDirection:i*angleDivision];
+        float angleDegrees = angleDivision/2 + i * angleDivision - 90;
+        CGPoint pushedPoint = [self pointFromPoint:center pushedBy:radius inDirection:angleDegrees];
         UILabel *numberLabel = [[UILabel alloc] initWithFrame:CGRectMake(pushedPoint.x - 10, pushedPoint.y - 10, 20, 20)];
         numberLabel.font = [UIFont fontWithName:@"Helvetica" size:12];
         numberLabel.textColor = [UIColor whiteColor];
         numberLabel.text = [NSString stringWithFormat:@"%i", i];
         numberLabel.backgroundColor = [UIColor clearColor];
-        numberLabel.layer.transform = CATransform3DMakeRotation((i * angleDivision) * M_PI/180 + M_PI/2, 0, 0, 1);
+        numberLabel.layer.transform = CATransform3DMakeRotation(angleDegrees * M_PI/180 + M_PI/2, 0, 0, 1);
         
         [self addSubview:numberLabel];
     }
@@ -170,7 +171,7 @@
 
 -(void)findCurrentDialFromRotation:(float)rotation
 {
-    u_int selectedNumber = roundf((rotation * 180/M_PI)/360 * (digits-1));
+    u_int selectedNumber = (digits-1) - roundf((rotation * 180/M_PI)/360 * (digits-1));
     
     if (self.currentDigit != selectedNumber) {
         self.currentDigit = selectedNumber;

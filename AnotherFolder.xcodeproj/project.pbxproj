@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8697D46716C1E9A300B1712D /* click.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8697D46616C1E9A300B1712D /* click.wav */; };
-		8697D46916C1E9B100B1712D /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8697D46816C1E9B100B1712D /* AVFoundation.framework */; };
+		8697D46C16C2181000B1712D /* AFLock.m in Sources */ = {isa = PBXBuildFile; fileRef = 8697D46B16C2181000B1712D /* AFLock.m */; };
 		869E082B16C09A280064242D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 869E082A16C09A280064242D /* UIKit.framework */; };
 		869E082D16C09A280064242D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 869E082C16C09A280064242D /* Foundation.framework */; };
 		869E082F16C09A280064242D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 869E082E16C09A280064242D /* CoreGraphics.framework */; };
@@ -26,8 +25,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		8697D46616C1E9A300B1712D /* click.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = click.wav; sourceTree = "<group>"; };
-		8697D46816C1E9B100B1712D /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		8697D46A16C2181000B1712D /* AFLock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFLock.h; sourceTree = "<group>"; };
+		8697D46B16C2181000B1712D /* AFLock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFLock.m; sourceTree = "<group>"; };
 		869E082716C09A280064242D /* AnotherFolder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnotherFolder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		869E082A16C09A280064242D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		869E082C16C09A280064242D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -55,7 +54,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8697D46916C1E9B100B1712D /* AVFoundation.framework in Frameworks */,
 				869E08C516C0C4F60064242D /* QuartzCore.framework in Frameworks */,
 				869E082B16C09A280064242D /* UIKit.framework in Frameworks */,
 				869E082D16C09A280064242D /* Foundation.framework in Frameworks */,
@@ -86,7 +84,6 @@
 		869E082916C09A280064242D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				8697D46816C1E9B100B1712D /* AVFoundation.framework */,
 				869E08C416C0C4F60064242D /* QuartzCore.framework */,
 				869E082A16C09A280064242D /* UIKit.framework */,
 				869E082C16C09A280064242D /* Foundation.framework */,
@@ -104,6 +101,8 @@
 				869E084216C09A280064242D /* MainStoryboard.storyboard */,
 				869E084516C09A280064242D /* AFViewController.h */,
 				869E084616C09A280064242D /* AFViewController.m */,
+				8697D46A16C2181000B1712D /* AFLock.h */,
+				8697D46B16C2181000B1712D /* AFLock.m */,
 				869E08C116C0B9C20064242D /* JCDialView.h */,
 				869E08C216C0B9C20064242D /* JCDialView.m */,
 				869E083116C09A280064242D /* Supporting Files */,
@@ -128,7 +127,6 @@
 		869E08C616C0E7010064242D /* media */ = {
 			isa = PBXGroup;
 			children = (
-				8697D46616C1E9A300B1712D /* click.wav */,
 				869E08CD16C0F2F30064242D /* knobMetal.png */,
 			);
 			path = media;
@@ -192,7 +190,6 @@
 				869E084116C09A280064242D /* Default-568h@2x.png in Resources */,
 				869E084416C09A280064242D /* MainStoryboard.storyboard in Resources */,
 				869E08CF16C0F2F30064242D /* knobMetal.png in Resources */,
-				8697D46716C1E9A300B1712D /* click.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -207,6 +204,7 @@
 				869E083B16C09A280064242D /* AFAppDelegate.m in Sources */,
 				869E084716C09A280064242D /* AFViewController.m in Sources */,
 				869E08C316C0B9C20064242D /* JCDialView.m in Sources */,
+				8697D46C16C2181000B1712D /* AFLock.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

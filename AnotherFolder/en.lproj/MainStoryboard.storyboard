@@ -36,20 +36,51 @@
                                     <constraint firstItem="tjI-x1-VPG" firstAttribute="leading" secondItem="zd2-0o-UYC" secondAttribute="leading" type="default" id="t4V-lT-ncK"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jl0-Tj-kWP">
+                                <color key="backgroundColor" red="0.92453654215467107" green="0.91651420171086895" blue="0.97069495292887031" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="isq-De-BY7">
+                                <color key="backgroundColor" red="0.92453654220000003" green="0.91651420169999998" blue="0.97069495289999996" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FG8-1G-Lue">
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ibm-Tg-hGE">
+                                <color key="backgroundColor" red="0.92453654220000003" green="0.91651420169999998" blue="0.97069495289999996" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="zd2-0o-UYC" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="1Vl-yO-Z6h"/>
-                            <constraint firstItem="zd2-0o-UYC" firstAttribute="centerX" secondItem="3" secondAttribute="centerX" type="default" id="Epp-aF-psm"/>
+                            <constraint firstItem="FG8-1G-Lue" firstAttribute="centerX" secondItem="zd2-0o-UYC" secondAttribute="centerX" type="default" id="2kY-xp-anY"/>
+                            <constraint firstItem="Jl0-Tj-kWP" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="79" id="BdW-Wi-wPg"/>
+                            <constraint firstItem="Ibm-Tg-hGE" firstAttribute="top" secondItem="isq-De-BY7" secondAttribute="top" type="default" id="CkV-aD-8L4"/>
+                            <constraint firstItem="Ibm-Tg-hGE" firstAttribute="leading" secondItem="isq-De-BY7" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="EhI-dp-qjo"/>
+                            <constraint firstItem="FG8-1G-Lue" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="151" id="K7l-8u-YIx"/>
+                            <constraint firstItem="FG8-1G-Lue" firstAttribute="top" secondItem="3" secondAttribute="top" constant="245" id="L1h-fk-nCl"/>
+                            <constraint firstItem="Jl0-Tj-kWP" firstAttribute="top" secondItem="3" secondAttribute="top" constant="159" id="LGI-2E-tv1"/>
+                            <constraint firstItem="isq-De-BY7" firstAttribute="top" secondItem="Jl0-Tj-kWP" secondAttribute="top" type="default" id="QpH-pP-UEb"/>
+                            <constraint firstItem="isq-De-BY7" firstAttribute="centerX" secondItem="FG8-1G-Lue" secondAttribute="centerX" type="default" id="VM6-E9-xpe"/>
+                            <constraint firstItem="Ibm-Tg-hGE" firstAttribute="bottom" secondItem="isq-De-BY7" secondAttribute="bottom" type="default" id="YXb-Gg-gdx"/>
+                            <constraint firstAttribute="bottom" secondItem="FG8-1G-Lue" secondAttribute="bottom" constant="272" id="bJB-rV-V1i"/>
+                            <constraint firstAttribute="bottom" secondItem="Jl0-Tj-kWP" secondAttribute="bottom" constant="337" id="bch-vJ-96h"/>
+                            <constraint firstItem="isq-De-BY7" firstAttribute="leading" secondItem="Jl0-Tj-kWP" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="cff-bR-j2W"/>
+                            <constraint firstItem="isq-De-BY7" firstAttribute="bottom" secondItem="Jl0-Tj-kWP" secondAttribute="bottom" type="default" id="lSP-9Q-37f"/>
+                            <constraint firstItem="isq-De-BY7" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="136" id="xXK-QV-w3U"/>
+                            <constraint firstItem="isq-De-BY7" firstAttribute="centerX" secondItem="3" secondAttribute="centerX" type="default" id="yd0-Lb-TfR"/>
+                            <constraint firstAttribute="trailing" secondItem="Ibm-Tg-hGE" secondAttribute="trailing" constant="78" id="yxZ-iD-rLl"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="dial" destination="tjI-x1-VPG" id="etZ-lT-fQ4"/>
+                        <outlet property="l1" destination="Jl0-Tj-kWP" id="Cic-Ls-Kja"/>
+                        <outlet property="l2" destination="isq-De-BY7" id="bpl-qh-NGd"/>
+                        <outlet property="l3" destination="Ibm-Tg-hGE" id="wxU-T8-0Ym"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="81" y="43"/>
+            <point key="canvasLocation" x="153" y="83"/>
         </scene>
     </scenes>
     <resources>
@@ -60,6 +91,9 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/AFViewController.h"/>
             <relationships>
                 <relationship kind="outlet" name="dial" candidateClass="JCDialView"/>
+                <relationship kind="outlet" name="l1" candidateClass="UIView"/>
+                <relationship kind="outlet" name="l2" candidateClass="UIView"/>
+                <relationship kind="outlet" name="l3" candidateClass="UIView"/>
             </relationships>
         </class>
         <class className="JCDialView" superclassName="UIView">

@@ -8,17 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-typedef void (^turnBlock)(float rotation);
-typedef void (^selectedDigit)(u_int number);
-typedef void (^changedDirection)(BOOL clockwise);
-
 @interface JCDialView : UIView
 
 @property float rotation, friction;
 
-@property (nonatomic, strong) turnBlock onDialTurn;
-@property (nonatomic, strong) selectedDigit onSelectedDigit;
-@property (nonatomic, strong) changedDirection onDirectionChange;
+@property (nonatomic, strong) void (^turnBlock)(float rotation);
+@property (nonatomic, strong) void (^selectedDigit)(u_int number);
+@property (nonatomic, strong) void (^changedDirection)(BOOL clockwise);
 
 @property u_int currentDigit;
 
